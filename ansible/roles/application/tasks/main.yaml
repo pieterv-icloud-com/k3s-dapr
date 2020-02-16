@@ -7,6 +7,14 @@
       group: root
       mode: 755
 
+- name: download redis helm chart
+  get_url:
+      url: https://kubernetes-charts.storage.googleapis.com/redis-ha-4.3.3.tgz
+      dest: /var/lib/rancher/k3s/server/static/charts
+      owner: root
+      group: root
+      mode: 755
+
 - name: Restart k3s service
   systemd:
     name: k3s
