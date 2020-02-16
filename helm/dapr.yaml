@@ -7,3 +7,8 @@ spec:
   chart: dapr
   repo: https://daprio.azurecr.io/helm/v1/repo
   targetNamespace: dapr-system
+  valuesContent: |-
+    global:
+      registry: docker.io/daprio
+      tag: latest-arm
+      imagePullPolicy: Always
