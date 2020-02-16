@@ -1,0 +1,9 @@
+apiVersion: helm.cattle.io/v1
+kind: HelmChart
+metadata:
+  name: dapr
+  namespace: kube-system
+spec:
+  chart: dapr
+  repo: https://daprio.azurecr.io/helm/v1/repo
+  targetNamespace: dapr-system
