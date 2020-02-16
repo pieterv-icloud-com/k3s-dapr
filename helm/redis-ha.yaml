@@ -1,11 +1,11 @@
 apiVersion: helm.cattle.io/v1
 kind: HelmChart
 metadata:
-  name: traefik
+  name: redis-ha
   namespace: kube-system
 spec:
   chart: https://%{KUBERNETES_API}%/static/charts/redis-ha-4.3.3.tgz
-  targetNamespace: kube-system
+  targetNamespace: redis-ha
   valuesContent: |-
     ## Configure resource requests and limits
     ## ref: http://kubernetes.io/docs/user-guide/compute-resources/
