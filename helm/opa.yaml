@@ -123,7 +123,7 @@ spec:
     mgmt:
       enabled: true
       image: pietervicloudcom/kube-mgmt
-      imageTag: "0.12-dev-linux-armv7"
+      imageTag: "0.12-dev"
       imagePullPolicy: IfNotPresent
       extraArgs: []
       resources: {}
