@@ -4,7 +4,7 @@ metadata:
   name: redis-ha
   namespace: kube-system
 spec:
-  chart: https://%{KUBERNETES_API}%/static/charts/redis-ha-4.3.3.tgz
+  chart: https://%{KUBERNETES_API}%/static/charts/redis-ha-{{ redis_ha_version }}.tgz
   targetNamespace: redis-ha
   valuesContent: |-
     ## Configure resource requests and limits
