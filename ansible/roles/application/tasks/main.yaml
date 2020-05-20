@@ -36,10 +36,10 @@
     dest: "{{ item.dest }}"
     mode: 0777
   with_items:
-    - {src: 'dapr.j2', dest: '/var/lib/rancher/k3s/server/manifests/dapr.yaml'}
-    - {src: 'opa.j2', dest: '/var/lib/rancher/k3s/server/manifests/opa.yaml'}
-    - {src: 'redis-ha.j2', dest: '/var/lib/rancher/k3s/server/manifests/redis-ha.yaml'}
-    - {src: 'traefik.j2', dest: '/var/lib/rancher/k3s/server/manifests/traefik.yaml'}
+    - {src: 'dapr.j2', dest: '/var/lib/rancher/k3s/server/manifests/helm-dapr.yaml'}
+    - {src: 'opa.j2', dest: '/var/lib/rancher/k3s/server/manifests/helm-opa.yaml'}
+    - {src: 'redis-ha.j2', dest: '/var/lib/rancher/k3s/server/manifests/helm-redis-ha.yaml'}
+    - {src: 'traefik.j2', dest: '/var/lib/rancher/k3s/server/manifests/helm-traefik.yaml'}
 
 - name: Copy manifests
   copy:
