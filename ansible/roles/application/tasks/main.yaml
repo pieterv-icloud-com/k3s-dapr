@@ -30,24 +30,16 @@
     state: restarted
     enabled: yes
 
-- name: Create manifests
+- name: Create helmchart manifests
   template:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
     mode: 0777
   with_items:
-    - {src: 'dapr.j2',dest: '{{ playbook_dir }}/helm/dap3.yaml'}
-    - {src: 'opa.j2',dest: '{{ playbook_dir }}/helm/opa.yaml'}
-    - {src: 'redis-ha.j2',dest: '{{ playbook_dir }}/helm/redis-ha.yaml'}
-    - {src: 'redis-ha.j2',dest: '{{ playbook_dir }}/helm/redis-ha.yaml'}
-
-- name: Copy helmchart manifests
-  copy:
-    src: "{{ playbook_dir }}/../helm/"
-    dest: "/var/lib/rancher/k3s/server/manifests"
-    owner: root
-    group: root
-    mode: 0644
+    - {src: 'dapr.j2', dest: '/var/lib/rancher/k3s/server/manifests/dapr.yaml'}
+    - {src: 'opa.j2', dest: '/var/lib/rancher/k3s/server/manifests/opa.yaml'}
+    - {src: 'redis-ha.j2', dest: '/var/lib/rancher/k3s/server/manifests/redis-ha.yaml'}
+    - {src: 'redis-ha.j2', dest: '/var/lib/rancher/k3s/server/manifests/redis-ha.yaml'}
 
 - name: Copy manifests
   copy:
