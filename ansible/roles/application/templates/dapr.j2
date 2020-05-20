@@ -11,4 +11,13 @@ spec:
     global:
       registry: docker.io/daprio
       tag: latest-arm
+      logAsJson: false
       imagePullPolicy: Always
+      imagePullSecrets: ""
+      prometheus:
+        enabled: false
+        port: 9090
+      mtls:
+        enabled: true
+        workloadCertTTL: 24h
+        allowedClockSkew: 15m
