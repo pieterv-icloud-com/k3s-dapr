@@ -36,10 +36,10 @@
     dest: "{{ item.dest }}"
     mode: 0777
   with_items:
-    - {src: '../../templates/dapr.j2',dest: '{{ playbook_dir }}/helm/dap3.yaml'}
-    - {src: '../../templates/opa.j2',dest: '{{ playbook_dir }}/helm/opa.yaml'}
-    - {src: '../../templates/redis-ha.j2',dest: '{{ playbook_dir }}/helm/redis-ha.yaml'}
-    - {src: '../../templates/redis-ha.j2',dest: '{{ playbook_dir }}/helm/redis-ha.yaml'}
+    - {src: 'dapr.j2',dest: '{{ playbook_dir }}/helm/dap3.yaml'}
+    - {src: 'opa.j2',dest: '{{ playbook_dir }}/helm/opa.yaml'}
+    - {src: 'redis-ha.j2',dest: '{{ playbook_dir }}/helm/redis-ha.yaml'}
+    - {src: 'redis-ha.j2',dest: '{{ playbook_dir }}/helm/redis-ha.yaml'}
 
 - name: Copy helmchart manifests
   copy:
