@@ -1,0 +1,34 @@
+apiVersion: helm.cattle.io/v1
+kind: HelmChart
+metadata:
+  name: gatekeeper
+  namespace: kube-system
+spec:
+  chart: gatekeeper
+  repo: https://raw.githubusercontent.com/open-policy-agent/gatekeeper/master/charts/gatekeeper
+  targetNamespace: getekeeper-system
+  valuesContent: |-
+    replicas: 1
+    auditInterval: 60
+    constraintViolationsLimit: 20
+    auditFromCache: false
+    logLevel: INFO
+    image:
+      repository: quay.io/open-policy-agent/gatekeeper
+      release: v3.1.0-beta.9
+      pullPolicy: IfNotPresent
+    nodeSelector: {
+      kubernetes.io/os: linux
+    }
+    affinity: {}
+    tolerations: []
+    podAnnotations: {
+      container.seccomp.security.alpha.kubernetes.io/manager: runtime/default
+    }
+    resources:
+      limits:
+        cpu: 1000m
+        memory: 512Mi
+      requests:
+        cpu: 100m
+        memory: 256Mi
