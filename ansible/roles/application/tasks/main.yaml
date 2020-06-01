@@ -15,14 +15,6 @@
       group: root
       mode: 755
 
-- name: download opa helm chart
-  get_url:
-      url: https://kubernetes-charts.storage.googleapis.com/opa-{{ opa_version }}.tgz
-      dest: /var/lib/rancher/k3s/server/static/charts
-      owner: root
-      group: root
-      mode: 755
-
 - name: Restart k3s service
   systemd:
     name: k3s
