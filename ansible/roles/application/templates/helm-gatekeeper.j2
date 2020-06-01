@@ -5,7 +5,7 @@ metadata:
   namespace: kube-system
 spec:
   chart: https://%{KUBERNETES_API}%/static/charts/gatekeeper-{{ gatekeeper_version }}.tgz
-  targetNamespace: getekeeper-system
+  targetNamespace: gatekeeper-system
   valuesContent: |-
     replicas: 1
     auditInterval: 60
