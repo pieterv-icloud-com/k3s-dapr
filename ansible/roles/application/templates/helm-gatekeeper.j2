@@ -4,8 +4,7 @@ metadata:
   name: gatekeeper
   namespace: kube-system
 spec:
-  chart: gatekeeper
-  repo: https://raw.githubusercontent.com/open-policy-agent/gatekeeper/master/charts/gatekeeper
+  chart: https://%{KUBERNETES_API}%/static/charts/gatekeeper-{{ gatekeeper_version }}.tgz
   targetNamespace: getekeeper-system
   valuesContent: |-
     replicas: 1

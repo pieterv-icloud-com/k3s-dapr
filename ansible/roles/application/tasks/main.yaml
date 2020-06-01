@@ -15,6 +15,15 @@
       group: root
       mode: 755
 
+- name: download gatekeeper chart
+  get_url:
+      url: https://raw.githubusercontent.com/open-policy-agent/gatekeeper/master/charts/gatekeeper/gatekeeper-{{ gatekeeper_version }.tgz
+      dest: /var/lib/rancher/k3s/server/static/charts
+      owner: root
+      group: root
+      mode: 755
+
+
 - name: Restart k3s service
   systemd:
     name: k3s
