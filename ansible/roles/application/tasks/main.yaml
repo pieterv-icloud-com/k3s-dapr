@@ -21,6 +21,14 @@
 - name: helm package gatekeeper
   command: /var/lib/cache/helm-{{ helm_version }}-linux-arm/linux-arm/helm package /var/lib/cache/charts/gatekeeper
 
+- name: copy gatekeeper chart
+  copy:
+    src: /var/lib/cache/charts/gatekeeper/gatekeeper-{{ gatekeeper_version }}}}.tgz
+    dest: /var/lib/rancher/k3s/server/static/charts
+    owner: root
+    group: root
+    mode: 0644
+
 - name: download traefik helm chart
   get_url:
       url: https://kubernetes-charts.storage.googleapis.com/traefik-{{ traefik_version }}.tgz
