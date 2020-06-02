@@ -19,15 +19,7 @@
       remote_src: yes
 
 - name: helm package gatekeeper
-  command: /var/lib/cache/helm-{{ helm_version }}-linux-arm/linux-arm/helm package /var/lib/cache/charts/gatekeeper
-
-- name: copy gatekeeper chart
-  copy:
-    src: /var/lib/cache/charts/gatekeeper/*.tgz
-    dest: /var/lib/rancher/k3s/server/static/charts
-    owner: root
-    group: root
-    mode: 0644
+  command: /var/lib/cache/helm-{{ helm_version }}-linux-arm/linux-arm/helm package /var/lib/cache/charts/gatekeeper --destination /var/lib/rancher/k3s/server/static/charts
 
 - name: download traefik helm chart
   get_url:
@@ -40,14 +32,6 @@
 - name: download redis helm chart
   get_url:
       url: https://kubernetes-charts.storage.googleapis.com/redis-ha-{{ redis_ha_version }}.tgz
-      dest: /var/lib/rancher/k3s/server/static/charts
-      owner: root
-      group: root
-      mode: 755
-
-- name: download gatekeeper chart
-  get_url:
-      url: https://raw.githubusercontent.com/open-policy-agent/gatekeeper/master/charts/gatekeeper/gatekeeper-{{ gatekeeper_version }}.tgz
       dest: /var/lib/rancher/k3s/server/static/charts
       owner: root
       group: root
