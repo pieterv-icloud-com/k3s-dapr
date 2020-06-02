@@ -1,4 +1,10 @@
 ---
+- name: download helm
+  unarchive:
+      src: https://get.helm.sh/helm-{{ helm_version }}-linux-arm.tar.gz
+      dest: /usr/local/bin/helm-{{ helm_version }}-linux-arm
+      remote_src: yes
+
 - name: download traefik helm chart
   get_url:
       url: https://kubernetes-charts.storage.googleapis.com/traefik-{{ traefik_version }}.tgz
