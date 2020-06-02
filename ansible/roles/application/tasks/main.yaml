@@ -23,7 +23,7 @@
 
 - name: copy gatekeeper chart
   copy:
-    src: /var/lib/cache/charts/gatekeeper/gatekeeper-{{ gatekeeper_version }}}}.tgz
+    src: /var/lib/cache/charts/gatekeeper/gatekeeper-{{ gatekeeper_version }}.tgz
     dest: /var/lib/rancher/k3s/server/static/charts
     owner: root
     group: root
