@@ -10,7 +10,7 @@
 - name: install helm
   unarchive:
       src: https://get.helm.sh/helm-{{ helm_version }}-linux-arm.tar.gz
-      dest: "/usr/local/bin/helm-{{ helm_version }}-linux-arm"
+      dest: "/usr/local/bin"
       remote_src: yes
 
 - name: helm package gatekeeper
