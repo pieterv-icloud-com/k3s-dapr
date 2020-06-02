@@ -1,16 +1,16 @@
 ---
-- name: copy helm charts
-  copy:
-    src: "{{ playbook_dir }}/../charts/"
-    dest: "/var/lib/charts"
-    owner: root
-    group: root
-    mode: 0644
-
 - name: create directory
   file:
     path: /var/lib/cache/helm-{{ helm_version }}-linux-arm
     state: directory
+
+- name: copy helm charts
+  copy:
+    src: "{{ playbook_dir }}/../charts/"
+    dest: /var/lib/cache/charts
+    owner: root
+    group: root
+    mode: 0644
 
 - name: install helm
   unarchive:
@@ -19,7 +19,7 @@
       remote_src: yes
 
 - name: helm package gatekeeper
-  command: /var/lib/cache/helm-{{ helm_version }}-linux-arm/linux-arm/helm package /var/lib/charts/gatekeeper
+  command: /var/lib/cache/helm-{{ helm_version }}-linux-arm/linux-arm/helm package /var/lib/cache/charts/gatekeeper
 
 - name: download traefik helm chart
   get_url:
